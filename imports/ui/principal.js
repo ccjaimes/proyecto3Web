@@ -5,6 +5,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 //COMPONENTES
 import Inicio from "./inicio";
 import Tendencia from "./tendencia";
+import Registrar from "./registrar";
 
 class Principal extends Component {
     render() {
@@ -24,6 +25,9 @@ class Principal extends Component {
                     </Route>
                     <Route path="/tendencia">
                         <Tendencia></Tendencia>
+                    </Route>
+                    <Route path="/registrar">
+                        <Registrar></Registrar>
                     </Route>
                 </Switch>
 
@@ -52,6 +56,13 @@ class Principal extends Component {
                                         <img src="https://image.flaticon.com/icons/svg/149/149763.svg" style={{ width: "30%" }} alt="Recomendado" />
                                         <br></br>
                                         Recomendado
+                                    </Link>
+                                </div>
+                                <div className="col-4 text-center" style={{ filter: "invert(100%)" }}>
+                                    <Link to ="/registrar">
+                                        <img src="https://image.flaticon.com/icons/svg/2089/2089689.svg" style={{ width: "30%" }} alt="Registrar" />
+                                        <br></br>
+                                        Registrarse
                                     </Link>
                                 </div>
                             </div>

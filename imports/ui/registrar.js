@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+import Card from "react-bootstrap/Card";
+
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import { Usuario } from '../api/usuario.js';
 class Registrar extends Component {
