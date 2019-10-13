@@ -61,7 +61,7 @@ class Registrar extends Component {
             <div>
                 <div className="card">
                     <div className="card-body">
-                        <div className="card-title">Registro</div>
+                        <div className="card-title"><h1 class="display-3">Registro</h1></div>
                          <form onSubmit={this.handleSubmit} className="form-group">
                     <div >
                         <label >Nombre Completo</label>
