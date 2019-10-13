@@ -3,7 +3,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 
 import {Redirect} from 'react-router-dom';
 
-import { UsuarioBD } from '../api/usuarioBD.js/index.js';
+import { UsuarioBD } from '../api/usuarioBD';
  
 class Usuario extends Component {
 
