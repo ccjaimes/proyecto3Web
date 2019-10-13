@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import {Usuario} from '../imports/api/usuario.js';
+import {UsuarioBD} from '../imports/api/usuarioBD.js';
 import {descuentoBD} from '../imports/api/descuentoBD.js';
 
 

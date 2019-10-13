@@ -3,7 +3,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 
 import {Redirect} from 'react-router-dom';
 
-import { Usuario } from '../api/usuario.js';
+import { UsuarioBD } from '../api/usuarioBD.js/index.js';
  
 class Usuario extends Component {
 
@@ -16,7 +16,7 @@ class Usuario extends Component {
 
   logOut=()=>{
       sessionStorage.setItem("Usuario", null)
-      return <Redirect to="/home"></Redirect>
+      return <Redirect to="/"></Redirect>
   }  
 
   render() {

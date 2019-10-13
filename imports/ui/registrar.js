@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { Usuario } from '../api/usuario.js';
+import { UsuarioBD } from '../api/usuarioBD.js';
 import style from './style.css'
 
 class Registrar extends Component {
@@ -27,7 +27,7 @@ class Registrar extends Component {
     renderProfile = () => { 
         if (this.state.redirect) { 
           var str = '/usuario/'.concat(sessionStorage.getItem("Usuario"))
-          return <Redirect to ={str}/> 
+          return <Redirect to ='/usuario'/> 
         } 
     }  
     handleChange=(e)=>{
@@ -46,7 +46,7 @@ class Registrar extends Component {
         e.preventDefault();
         var data = {usuario:document.getElementById("name").value,password:document.getElementById("password").value,correo:document.getElementById("email").value, rol:"CLIENTE"}
         
-        Usuario.insert(data);
+        UsuarioBD.insert(data);
         sessionStorage.setItem("Usuario",data.usuario);
         if(sessionStorage.getItem("Usuario") != null){
             this.setState({

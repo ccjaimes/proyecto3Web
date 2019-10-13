@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Usuario from '../api/usuario.js';
+import UsuarioBD from '../api/usuarioBD.js';
 import {Redirect} from 'react-router-dom';
 
 class Login extends Component {
@@ -14,7 +14,7 @@ class Login extends Component {
     renderProfile = () => { 
         if (this.state.redirect) { 
           var str = '/usuario/'.concat(sessionStorage.getItem("Usuario"))
-          return <Redirect to = {str}/> 
+          return <Redirect to = '/usuario'/> 
         } 
     }  
 
@@ -24,7 +24,7 @@ class Login extends Component {
 
         let user={usuario:document.getElementById("user").value ,password: document.getElementById("passwordUser").value };
 
-        if(user.password === Usuario.findOne({usuario:user.usuario}).password){
+        if(user.password === UsuarioBD.findOne({usuario:user.usuario}).password){
             sessionStorage.setItem("Usuario", user.usuario);
         }
         this.setState({
