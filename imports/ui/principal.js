@@ -7,6 +7,8 @@ import Tendencia from "./tendencia";
 import Registrar from "./registrar";
 import Login from "./login";
 import Usuario from './usuario';
+import CentroComercialDetail from './centrocomercialdetail.js';
+import CentrosComerciales from './centroscomerciales.js';
 
 class Principal extends Component {
     render() {
@@ -36,6 +38,12 @@ class Principal extends Component {
                     </Route>
                     <Route path="/usuario">
                         <Usuario></Usuario>
+                    </Route>
+                    <Route path="/centroscomerciales">
+                        <CentrosComerciales/>
+                    </Route>
+                    <Route path="/centrocomercial/:cc">
+                        <CentroComercialDetail/>
                     </Route>
                 </Switch>
 
