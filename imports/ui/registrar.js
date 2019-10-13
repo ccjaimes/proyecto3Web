@@ -44,7 +44,7 @@ class Registrar extends Component {
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        var data = {usuario:document.getElementById("name").value,password:document.getElementById("password").value,correo:document.getElementById("email").value, rol:"CLIENTE"}
+        var data = {usuario:document.getElementById("name").value,password:document.getElementById("password").value,correo:document.getElementById("email").value, rol:document.getElementsByName("tipo").value}
         
         UsuarioBD.insert(data);
         sessionStorage.setItem("Usuario",data.usuario);
@@ -74,6 +74,13 @@ class Registrar extends Component {
                     <div >
                         <label >Email</label>
                         <input type="text" id="email" className="form-control" placeholder="email" required />
+                    </div>
+                    <div>
+                        <label>Tipo de Usuario</label>
+                        <select name="tipo">
+                            <option value="Cliente">Cliente</option>
+                            <option value="Administrador">Administrador</option>
+                        </select>
                     </div>
                     <div>
                     <p className="text-center">

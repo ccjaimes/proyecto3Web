@@ -9,15 +9,29 @@ class Usuario extends Component {
 
     constructor(){
         super();
+        var data = UsuarioBD.findOne({usuario:sessionStorage.getItem("Usuario")})
         this.state={
-
+            usuario: data.usuario,
+            correo: data.correo,
+            rol:data.rol
         }
     }
 
-  logOut=()=>{
+  logOut =()=>{
       sessionStorage.setItem("Usuario", null)
-      return <Redirect to="/"></Redirect>
+      return <Redirect to="/tendencia"></Redirect>
   }  
+
+  insertarDatos =()=>{
+
+    var dato = sessionStorage.getItem("Usuario")
+
+      this.setState({
+          usuario:dato.usuario,
+          correo:dato.correo,
+          rol:dato.rol
+      })
+  }
 
   render() {
     return (
@@ -26,9 +40,9 @@ class Usuario extends Component {
           
             <div className="card-img" variant="top" src="holder.js/100px180" />
                 <div className="card-body">
-                    <div className="card-title">Nombre Usuario</div>
+                    <div className="card-title">{this.state.usuario}</div>
                     <img src="" className="rounded-circle" alt="Foto de perfil"></img>
-                    <button variant="primary" onClick={this.logOut()}>Log Out</button>
+                    <button variant="primary" onClick={(event)=>this.logOut(event)}>Log Out</button>
                 </div>
           </div>
       </div>
