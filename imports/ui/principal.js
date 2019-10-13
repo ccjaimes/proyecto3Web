@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 //COMPONENTES
 import Inicio from "./inicio";
 import Tendencia from "./tendencia";
+import Registrar from "./registrar";
 
 class Principal extends Component {
     render() {
@@ -24,6 +25,9 @@ class Principal extends Component {
                     </Route>
                     <Route path="/tendencia">
                         <Tendencia></Tendencia>
+                    </Route>
+                    <Route path="/registrar">
+                        <Registrar></Registrar>
                     </Route>
                 </Switch>
 
@@ -55,10 +59,10 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to="/begin">
-                                        <img src="https://image.flaticon.com/icons/svg/74/74472.svg" style={{ width: "30%" }} alt="Recomendado"/>
+                                    <Link to ="/registrar">
+                                        <img src="https://image.flaticon.com/icons/svg/2089/2089689.svg" style={{ width: "30%" }} alt="Registrar" />
                                         <br></br>
-                                        Registrar
+                                        Registrarse
                                     </Link>
                                 </div>
                             </div>

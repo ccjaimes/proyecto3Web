@@ -5,6 +5,7 @@ class Inicio extends Component {
         return (
             <div>
                 HOLA, SOMOS PINE
+                
             </div>
         );
     }
