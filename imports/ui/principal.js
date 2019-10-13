@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Inicio from "./inicio";
 import Tendencia from "./tendencia";
 import Registrar from "./registrar";
+import Login from "./login";
+import Usuario from './usuario';
 
 class Principal extends Component {
     render() {
@@ -28,6 +30,12 @@ class Principal extends Component {
                     </Route>
                     <Route path="/registrar">
                         <Registrar></Registrar>
+                    </Route>
+                    <Route path="/login">
+                        <Login></Login>
+                    </Route>
+                    <Route path="/usuario">
+                        <Usuario></Usuario>
                     </Route>
                 </Switch>
 

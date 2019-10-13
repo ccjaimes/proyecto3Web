@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
-import Card from "react-bootstrap/Card";
-
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-
 import { Usuario } from '../api/usuario.js';
+import style from './style.css'
+
 class Registrar extends Component {
 
     constructor(){
@@ -27,8 +26,8 @@ class Registrar extends Component {
     }
     renderProfile = () => { 
         if (this.state.redirect) { 
-            str = '/usuario/'.concat(sessionStorage.getItem("Usuario"))
-          return <Redirect to = {str}/> 
+          var str = '/usuario/'.concat(sessionStorage.getItem("Usuario"))
+          return <Redirect to ={str}/> 
         } 
     }  
     handleChange=(e)=>{
@@ -60,21 +59,21 @@ class Registrar extends Component {
     render() {
         return (
             <div>
-                <Card className="text-center">
-                    <Card.Body>
-                        <Card.Title>Registro</Card.Title>
+                <div className="card">
+                    <div className="card-body">
+                        <div className="card-title">Registro</div>
                          <form onSubmit={this.handleSubmit} className="form-group">
                     <div >
                         <label >Nombre Completo</label>
-                        <input type="text" id="name" className="form-control" placeholder="Nombre Completo"  ></input>
+                        <input type="text" id="name" className="form-control" placeholder="Nombre Completo" required />
                     </div>
                     <div >
                         <label >Contraseña</label>
-                        <input type="password" id="password" className="form-control" placeholder="Ingresa tu contraseña" ></input>
+                        <input type="password" id="password" className="form-control" placeholder="Ingresa tu contraseña"  required />
                     </div>
                     <div >
                         <label >Email</label>
-                        <input type="text" id="email" className="form-control" placeholder="email"  ></input>
+                        <input type="text" id="email" className="form-control" placeholder="email" required />
                     </div>
                     <div>
                     <p className="text-center">
@@ -83,8 +82,8 @@ class Registrar extends Component {
                        <button onClick = { (event)=>{this.handleSubmit(event)} } className="btn btn-primary">Registrarse</button>
                     </div>
                 </form>
-                </Card.Body>
-                </Card>
+                </div>
+                </div>
                 {this.renderProfile()}
                 
             </div>

@@ -1,28 +1,35 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Template } from 'meteor/templating';
-import { Blaze } from 'meteor/blaze';
+import {Redirect} from 'react-router-dom';
 
 import { Usuario } from '../api/usuario.js';
  
 class Usuario extends Component {
 
+    constructor(){
+        super();
+        this.state={
+
+        }
+    }
+
+  logOut=()=>{
+      sessionStorage.setItem("Usuario", null)
+      return <Redirect to="/home"></Redirect>
+  }  
+
   render() {
     return (
       <div>
-          <div className="">
-          <Card className ="text-center" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180" />
-                <Card.Body>
-                    <Card.Title>Nombre Usuario</Card.Title>
+          <div className="card">
+          
+            <div className="card-img" variant="top" src="holder.js/100px180" />
+                <div className="card-body">
+                    <div className="card-title">Nombre Usuario</div>
                     <img src="" className="rounded-circle" alt="Foto de perfil"></img>
-                    <Card.Text>
-                        
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
+                    <button variant="primary" onClick={this.logOut()}>Log Out</button>
+                </div>
           </div>
       </div>
     );

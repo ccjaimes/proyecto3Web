@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Usuario from '../api/usuario.js';
+import {Redirect} from 'react-router-dom';
 
 class Login extends Component {
 
     constructor(){
+        super();
         this.state = {
             mostrar : false
         }
@@ -11,7 +13,7 @@ class Login extends Component {
     }
     renderProfile = () => { 
         if (this.state.redirect) { 
-            str = '/usuario/'.concat(sessionStorage.getItem("Usuario"))
+          var str = '/usuario/'.concat(sessionStorage.getItem("Usuario"))
           return <Redirect to = {str}/> 
         } 
     }  
@@ -36,9 +38,9 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <Card className="text-center">
-                    <Card.Body>
-                        <Card.Title>Login</Card.Title>
+                <div className="card .col-centered">
+                    <div className="card-body">
+                        <div className="card-title">Login</div>
                          <form onSubmit={this.handleSubmit} className="form-group">
                     <div>
                         <label>User</label>
@@ -52,8 +54,8 @@ class Login extends Component {
                        <button onClick = { (event)=>{this.autentication(event)} } className="btn btn-primary">Registrarse</button>
                     </div>
                 </form>
-                </Card.Body>
-                </Card>
+                </div>
+                </div>
                 {this.renderProfile()}
             </div>
         );
