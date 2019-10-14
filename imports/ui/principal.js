@@ -5,14 +5,33 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Inicio from "./inicio";
 import Tendencia from "./tendencia";
 import Registrar from "./registrar";
+import Reg from "./reg";
 import Login from "./login";
 import Usuario from './usuario';
 import CentroComercialDetail from './centrocomercialdetail.js';
 import CentrosComerciales from './centroscomerciales.js';
 
 class Principal extends Component {
+
+    
+
     render() {
+        const estaLoggeado = sessionStorage.getItem("Usuario");
+
+        let label,icon,link;
+
+        if(estaLoggeado!=null){
+            label = "Perfil";
+            link = "/registrar"
+            icon =<img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} alt="Perfil" />
+        }
+        else{
+            label = "Registrarse";
+            link = "/registrar"
+            icon =<img src="https://image.flaticon.com/icons/svg/2089/2089689.svg" style={{ width: "30%" }} alt="Registrar" />
         
+        }
+
         return (
             <Router>
                 <div className="container-fluid">
@@ -31,7 +50,7 @@ class Principal extends Component {
                         <Tendencia></Tendencia>
                     </Route>
                     <Route path="/registrar">
-                        <Registrar></Registrar>
+                        <Reg></Reg>
                     </Route>
                     <Route path="/login">
                         <Login></Login>
@@ -75,10 +94,10 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to ="/registrar">
-                                        <img src="https://image.flaticon.com/icons/svg/2089/2089689.svg" style={{ width: "30%" }} alt="Registrar" />
+                                    <Link to={link}>
+                                        {icon}
                                         <br></br>
-                                        Registrarse
+                                        {label}
                                     </Link>
                                 </div>
                             </div>

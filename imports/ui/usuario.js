@@ -18,7 +18,8 @@ class Usuario extends Component {
     }
 
   logOut =()=>{
-      sessionStorage.setItem("Usuario", null)
+      sessionStorage.setItem("Usuario", null);
+      sessionStorage.clear();
       return <Redirect to="/tendencia"></Redirect>
   }  
 
