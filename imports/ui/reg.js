@@ -42,8 +42,11 @@ validatePassword(value){
 
 render() {
     return (
-  <div>
-    
+  <div className="row">
+    <div className="col-12">
+        <div className="col-4">
+            <div className="card" hidden></div>
+        </div>
     <Formik
       initialValues={{
         username: '',
@@ -57,28 +60,39 @@ render() {
       }}
     >
       {({ errors, touched, isValidating }) => (
-          <div>
+          <div className="col-4 mx-auto"> 
             <div className="card text-center">
-                  <div className="card-body">
-                  <div className="card-title"><h1 className="display-3" style={{textAlign:"center"}}>Registro</h1></div>
+                  <div className="card-body"  style={{backgroundColor: '#FFC49B'}}>
+                  <div className="card-title"><h1 className="display-3" style={{textAlign:"center", color:"#001B2E"}}>Registro</h1></div>
                         
                   <Form>
-                  <label >Usuario</label>
-                    <Field name="username" validate={this.validateUsername} />
-                    <ErrorMessage component="span" name="username" />
-                    <label >Contraseña</label>
-                    <Field name="password" type="password" validate={this.validatePassword} />
-                    <ErrorMessage component="span" name="password" />
-                    <label >Email</label>
-                    <Field name="email" validate={this.validateEmail} />
-                    <ErrorMessage component="span" name="email" />
-                    <button type="submit">Submit</button>
+                      <div>
+                  <label style={{color:'FFEFD3'}} >Usuario</label>
+                  <br></br>
+                    <Field name="username" validate={this.validateUsername} placeholder="Usuario" />
+                    {errors.username && touched.username && (errors.username!=null) ? <div>{errors.username}</div>: console.log(errors)}
+                    </div>
+                    <div>
+                    <label style={{color:'FFEFD3'}}>Contraseña</label>
+                    <br></br>
+                    <Field name="password" type="password" validate={this.validatePassword} placeholder="Contraseña"/>
+                    {errors.password && touched.password && (errors.password!=null) ? <div>{errors.password}</div>: console.log(errors)}
+                    </div>
+                    <div>
+                    <label style={{color:'FFEFD3'}}>Email</label>
+                    <br></br>
+                    <Field name="email" validate={this.validateEmail} placeholder="Ej: 123@mail.com"/>
+                    {errors.email && touched.email && (errors.email!=null) ? <div>{errors.email}</div>: console.log(errors)}
+                    <br></br>
+                    <button type="submit" className="btn btn-primary" >Submit</button>
+                    </div>
                     </Form>
                     </div>
             </div>
         </div>
       )}
     </Formik>
+  </div>
   </div>
 )
 };
