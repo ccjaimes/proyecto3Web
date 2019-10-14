@@ -42,7 +42,7 @@ class Usuario extends Component {
                 <div className="card-body">
                     <div className="card-title">{this.state.usuario}</div>
                     <img src="" className="rounded-circle" alt="Foto de perfil"></img>
-                    <button variant="primary" onClick={(event)=>this.logOut(event)}>Log Out</button>
+                    <button className="primary" onClick={(event)=>this.logOut(event)}>Log Out</button>
                 </div>
           </div>
       </div>

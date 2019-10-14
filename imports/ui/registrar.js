@@ -4,6 +4,13 @@ import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import { UsuarioBD } from '../api/usuarioBD.js';
 import style from './style.css'
 
+const txtFieldState = {
+    value: "",
+    valid: true,
+    typeMismatch: false,
+    errMsg: "" //this is where our error message gets across
+};
+
 class Registrar extends Component {
 
     constructor(){
@@ -12,12 +19,25 @@ class Registrar extends Component {
             email:'',
             password:'',
             name:'',
-            redirect:false
+            redirect:false,
+            email1: { ...txtFieldState, fieldName: "Email", required: true, requiredTxt: "Email is required", formatErrorTxt: "Incorrect email format" },
+        name1: { ...txtFieldState, fieldName: "First Name", required: true, requiredTxt: "First Name is required" },
+        password: { ...txtFieldState, fieldName: "Last Name", required: false, requiredTxt: "Last Name is required" },
+        allFieldsValid: false
         }
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    ErrorValidationLabel = ({ txtLbl }) => (
+        <label htmlFor="" style={{ color: "red" }}>
+            {txtLbl}
+        </label>
+    );
+
+    reduceFormValues = formElements => {
+        const arrElements = Array.prototype.slice.call(formElements);
 
     renderLogin = () => { 
         
@@ -57,12 +77,17 @@ class Registrar extends Component {
 
 
     render() {
+
+        const { email, firstname, lastname, allFieldsValid } = this.state;
+        const renderEmailValidationError = email.valid ?  "" : <ErrorValidationLabel txtLbl={email.typeMismatch ? email.formatErrorTxt : email.requiredTxt} />;
+        const renderDateValidationError = lastname.valid ? "" : <ErrorValidationLabel txtLbl={lastname.requiredTxt} />;
+        const renderFnameValidationError = firstname.valid ? "" : <ErrorValidationLabel txtLbl={firstname.requiredTxt} />;
         return (
             <div>
                 <div className="card">
                     <div className="card-body">
-                        <div className="card-title"><h1 class="display-3">Registro</h1></div>
-                         <form onSubmit={this.handleSubmit} className="form-group">
+                        <div className="card-title"><h1 className="display-3">Registro</h1></div>
+                         <form onSubmit={this.handleSubmit} className="form-group" noValidate>
                     <div >
                         <label >Nombre Completo</label>
                         <input type="text" id="name" className="form-control" placeholder="Nombre Completo" required />
@@ -73,7 +98,7 @@ class Registrar extends Component {
                     </div>
                     <div >
                         <label >Email</label>
-                        <input type="text" id="email" className="form-control" placeholder="email" required />
+                        <input type="email" id="email" className="form-control" placeholder="email" required />
                     </div>
                     <div>
                         <label>Tipo de Usuario</label>

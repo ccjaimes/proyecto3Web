@@ -40,7 +40,7 @@ class Login extends Component {
             <div>
                 <div className="card .col-centered">
                     <div className="card-body">
-                        <div className="card-title"><h1 class="display-3">Registro</h1></div>
+                        <div className="card-title"><h1 className="display-3">Registro</h1></div>
                          <form onSubmit={this.handleSubmit} className="form-group">
                     <div>
                         <label>User</label>
