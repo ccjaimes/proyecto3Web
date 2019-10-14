@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
+import DescuentoList from './descuento/descuentoList';
+
 class Tendencia extends Component {
     render() {
         return (
-            <div>
-                esto es tendencia
-            </div>
+            <DescuentoList categoria={parseInt(1 + Math.random()*2)}/>
         );
     }
 }
