@@ -10,7 +10,8 @@ import Login from "./login";
 import Usuario from './usuario';
 import CentroComercialDetail from './centroComercial/centrocomercialdetail';
 import CentrosComerciales from './centroComercial/centroscomerciales';
-import ListaProductos from './productos/listaProductos'
+import ListaProductos from './productos/listaProductos';
+import Buscar from './buscar';
 
 
 class Principal extends Component {
@@ -91,6 +92,9 @@ class Principal extends Component {
                     </Route>
                     <Route path="/productos">
                     <ListaProductos></ListaProductos>
+                    </Route>
+                    <Route path="/buscar">
+                        <Buscar ></Buscar>
                     </Route>
                     
                     <Route component={NoMatchPage}></Route>
