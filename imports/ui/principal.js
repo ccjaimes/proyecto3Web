@@ -18,7 +18,7 @@ class Principal extends Component {
                 <div className="container-fluid">
                     <div className="text-center">
                         <Link to="/" style={{ textDecoration: 'none' }}>
-                            <h1 className="display-1">P I N E</h1>
+                            <img src="https://raw.githubusercontent.com/ccjaimes/proyecto3Web/master/img/main.png"></img>
                         </Link>
                     </div>
                 </div>
