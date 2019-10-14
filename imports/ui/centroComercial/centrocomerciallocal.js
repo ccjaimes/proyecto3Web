@@ -34,6 +34,6 @@ class CentroComercialLocal extends Component {
 
 export default withTracker(() => {
   return {
-    local: Local.findOne({"_id":this.props.value})||{"_id" : ""},
+    local: this.props.value,
   };
 })(CentroComercialLocal);
