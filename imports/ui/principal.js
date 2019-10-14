@@ -21,11 +21,18 @@ class Principal extends Component {
         }
     }
 
+    logger(){
+        this.setState({
+            log:true
+        })
+    }
 
     render() {
 
         let estaLoggeado = sessionStorage.getItem("Usuario");
-        
+        if(!this.state.log){
+            estaLoggeado = null
+        }
 
         let label,icon,link;
 
@@ -89,7 +96,7 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to="/buscar" onClick={this.logger}>
+                                    <Link to="/buscar">
                                         <img src="https://image.flaticon.com/icons/svg/25/25313.svg" style={{ width: "30%" }} alt="Buscar" />
                                         <br></br>
                                         Buscar
@@ -103,7 +110,7 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to={sessionStorage.getItem("Usuario") !=null? "/usuario":"/registrar"}>
+                                    <Link to={sessionStorage.getItem("Usuario") !=null? "/usuario":"/registrar"} onClick={this.logger}>
                                         {icon}
                                         <br></br>
                                         {sessionStorage.getItem("Usuario") !=null? "Perfil":"Registrarse"}
