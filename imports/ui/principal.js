@@ -8,8 +8,8 @@ import Registrar from "./registrar";
 import Reg from "./reg";
 import Login from "./login";
 import Usuario from './usuario';
-import CentroComercialDetail from './centrocomercialdetail.js';
-import CentrosComerciales from './centroscomerciales.js';
+import CentroComercialDetail from './centroComercial/centrocomercialdetail';
+import CentrosComerciales from './centroComercial/centroscomerciales';
 
 class Principal extends Component {
 
@@ -37,7 +37,7 @@ class Principal extends Component {
                 <div className="container-fluid">
                     <div className="text-center">
                         <Link to="/" style={{ textDecoration: 'none' }}>
-                            <h1 className="display-1">P I N E</h1>
+                            <img src="https://raw.githubusercontent.com/ccjaimes/proyecto3Web/master/img/main.png"></img>
                         </Link>
                     </div>
                 </div>

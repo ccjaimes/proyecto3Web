@@ -1,12 +1,29 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { CentrosComercialesBD } from '../api/centroscomercialesBD.js';
+import { CentrosComercialesBD } from '../../api/centroscomercialesBD.js';
+import CentroComercialLocal from "./centrocomerciallocal.js";
 
 
 class CentroComercialDetail extends Component {
 
-  
+  darlocales(){
+
+    if(this.props.centroComercial.Locales==undefined||this.props.centroComercial.Locales.length==0){
+
+      return <h4>No hay locales asociados.</h4>;
+
+    }
+    else{
+      return this.props.centroComercial.Locales.map((d,e) => (
+
+        <CentroComercialLocal key={e} value={d} />
+      
+      ));
+
+    }
+    
+  }
 
   render() {
     return (
@@ -32,15 +49,21 @@ class CentroComercialDetail extends Component {
            Locales       
           </h2>
           <br></br>
+          <div className="row">
+          {this.darlocales()}
+          
+        </div>
+          
           <br></br>
 
         
         <div className="row">
         <div className="col-6">
-        <h1>
+          <br></br>
+        <h2>
            Ubicación
 
-          </h1>
+          </h2>
           <br>
           </br>
           <br>
@@ -62,6 +85,12 @@ class CentroComercialDetail extends Component {
 
         </div>
         </div>
+        <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
        
       </div>
     );
