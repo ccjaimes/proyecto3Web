@@ -81,7 +81,7 @@ class CentroComercialDetail extends Component {
     </script>
 
 
-    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&key=AIzaSyD04yeegjAB3k-Gg7hsyNPPQO-fE002-Ng" className="img-fluid" alt="Institution" width="900" height="500"></img>
+    <img src="https://maps.googleapis.com/maps/api/staticmap?center=Brooklyn+Bridge,New+York,NY&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C4.6476233,-74.1016282&key=AIzaSyD04yeegjAB3k-Gg7hsyNPPQO-fE002-Ng" className="img-fluid" alt="Institution" width="900" height="500"></img>
 
         </div>
         </div>
