@@ -20,10 +20,10 @@ class Registrar extends Component {
             password:'',
             name:'',
             redirect:false,
-            email1: { ...txtFieldState, fieldName: "Email", required: true, requiredTxt: "Email is required", formatErrorTxt: "Incorrect email format" },
-        name1: { ...txtFieldState, fieldName: "First Name", required: true, requiredTxt: "First Name is required" },
-        password: { ...txtFieldState, fieldName: "Last Name", required: false, requiredTxt: "Last Name is required" },
-        allFieldsValid: false
+            email1: { ...txtFieldState, fieldName: "email1", required: true, requiredTxt: "Email is required", formatErrorTxt: "Incorrect email format" },
+            name1: { ...txtFieldState, fieldName: "name1", required: true, requiredTxt: "First Name is required" },
+            password1: { ...txtFieldState, fieldName: "password1", required: false, requiredTxt: "Last Name is required" },
+            allFieldsValid: false
         }
 
         this.handleChange = this.handleChange.bind(this);
@@ -36,10 +36,49 @@ class Registrar extends Component {
         </label>
     );
 
-    reduceFormValues = formElements => {
-        const arrElements = Array.prototype.slice.call(formElements);
-
-    renderLogin = () => { 
+  //we need to extract specific properties in Constraint Validation API using this code snippet
+reduceFormValues = formElements => {
+    const arrElements = Array.prototype.slice.call(formElements); //we convert elements/inputs into an array found inside form element
+//we need to extract specific properties in Constraint Validation API using this code snippet
+    const formValues = arrElements
+        .filter(elem => elem.name.length > 0)
+        .map(x => {
+            const { typeMismatch } = x.validity;
+            const { name, type, value } = x;
+return {
+                name,
+                type,
+                typeMismatch, //we use typeMismatch when format is incorrect(e.g. incorrect email)
+                value,
+                valid: x.checkValidity()
+            };
+        })
+        .reduce((acc, currVal) => { //then we finally use reduce, ready to put it in our state
+            const { value, valid, typeMismatch } = currVal;
+            const {
+                fieldName,
+                requiredTxt,
+                formatErrorTxt
+            } = this.state[currVal.name]; //get the rest of properties inside the state object
+//we'll need to map these properties back to state so we use reducer...
+            acc[currVal.name] = {
+                value,
+                valid,
+                typeMismatch,
+                fieldName,
+                requiredTxt,
+                formatErrorTxt
+            };
+return acc;
+        }, {});
+return formValues;
+}
+checkAllFieldsValid = (formValues) => {
+    return !Object.keys(formValues)
+        .map(x => formValues[x])
+        .some(field => !field.valid);
+};
+   renderLogin = () => { 
         
           return <Redirect to = '/login' /> 
         
@@ -64,7 +103,11 @@ class Registrar extends Component {
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        var data = {usuario:document.getElementById("name").value,password:document.getElementById("password").value,correo:document.getElementById("email").value, rol:document.getElementsByName("tipo").value}
+
+        const form = e.target;
+        const formValues = this.reduceFormValues(form.elements);
+        const allFieldsValid = this.checkAllFieldsValid(formValues);
+        var data = {usuario:document.getElementById("name1").value,password:document.getElementById("password1").value,correo:document.getElementById("email1").value, rol:document.getElementsByName("tipo").value}
         
         UsuarioBD.insert(data);
         sessionStorage.setItem("Usuario",data.usuario);
@@ -73,32 +116,42 @@ class Registrar extends Component {
                 redirect:true
             });
         }
+        this.setState({ ...formValues, allFieldsValid });
+
     }
 
 
     render() {
 
-        const { email, firstname, lastname, allFieldsValid } = this.state;
-        const renderEmailValidationError = email.valid ?  "" : <ErrorValidationLabel txtLbl={email.typeMismatch ? email.formatErrorTxt : email.requiredTxt} />;
-        const renderDateValidationError = lastname.valid ? "" : <ErrorValidationLabel txtLbl={lastname.requiredTxt} />;
-        const renderFnameValidationError = firstname.valid ? "" : <ErrorValidationLabel txtLbl={firstname.requiredTxt} />;
+        const { email1, name1, password1, allFieldsValid } = this.state;
+        const successFormDisplay = allFieldsValid ? "block" : "none";
+        const inputFormDisplay = !allFieldsValid ? "block" : "none";
+
+        const renderEmailValidationError = email1.valid ?  "" : <ErrorValidationLabel txtLbl={email1.typeMismatch ? email1.formatErrorTxt : email1.requiredTxt} />;
+        const renderNameValidationError = name1.valid ? "" : <ErrorValidationLabel txtLbl={name1.requiredTxt} />;
+        const renderPasswordValidationError = password1.valid ? "" : <ErrorValidationLabel txtLbl={password1.requiredTxt} />;
         return (
             <div>
+                
                 <div className="card">
                     <div className="card-body">
-                        <div className="card-title"><h1 className="display-3">Registro</h1></div>
+                        <div className="card-title"><h1 className="display-3" style={{textAlign:"center"}}>Registro</h1></div>
+                            {renderNameValidationError}
                          <form onSubmit={this.handleSubmit} className="form-group" noValidate>
                     <div >
                         <label >Nombre Completo</label>
-                        <input type="text" id="name" className="form-control" placeholder="Nombre Completo" required />
+                        {renderNameValidationError}
+                        <input type="text" id="name1" className="form-control" placeholder="Nombre Completo" required />
                     </div>
                     <div >
                         <label >Contraseña</label>
-                        <input type="password" id="password" className="form-control" placeholder="Ingresa tu contraseña"  required />
+                        {renderPasswordValidationError}
+                        <input type="password" id="password1" className="form-control" placeholder="Ingresa tu contraseña"  required />
                     </div>
                     <div >
                         <label >Email</label>
-                        <input type="email" id="email" className="form-control" placeholder="email" required />
+                        {renderEmailValidationError}
+                        <input type="email" id="email1" className="form-control" placeholder="email" required />
                     </div>
                     <div>
                         <label>Tipo de Usuario</label>
@@ -111,8 +164,7 @@ class Registrar extends Component {
                     <p className="text-center">
                     ¿Ya tienes una cuenta? Ingresa <Link to="/login">aquí</Link>
                   </p>
-                       <button onClick = { (event)=>{this.handleSubmit(event)} } className="btn btn-primary">Registrarse</button>
-                    </div>
+                  <input type="submit" value="Submit" /> </div>
                 </form>
                 </div>
                 </div>
