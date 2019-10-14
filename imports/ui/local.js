@@ -28,8 +28,9 @@ class Locales extends Component {
           <div className="col-md-7 ">
              <h5 className="card-title mt-2">{d.Nombre}</h5>
              <p className="card-text  ">L-01 </p>
-             
-          
+             <div className="dropdown">
+          <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Productos </button>
+          </div>
            </div>    
       </div>      
 </div>
