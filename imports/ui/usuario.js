@@ -60,7 +60,7 @@ class Usuario extends Component {
           
             <div className="card-body">
                     <div className="card-title">{this.state.usuario}</div>
-                    <img src="https://image.flaticon.com/icons/svg/483/483361.svg" className="rounded-circle" alt="Foto de perfil"></img>
+                    <img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} className="rounded-circle" alt="Foto de perfil"></img>
                     <button className="btn btn-danger" onClick={(event)=>this.logOut(event)}>Log Out</button>
                 </div>
           </div>
@@ -69,9 +69,10 @@ class Usuario extends Component {
       <div hidden={!this.log()}>
       <div className="card">
           
-          <div className="card-img" variant="top" src="https://image.flaticon.com/icons/svg/1510/1510317.svg" />
-              <div className="card-body">
+          <div className="card-body">
                   <div className="card-title">Ops! Pagina no encontrada</div>
+                  <img className="card-img" variant="top" src="https://image.flaticon.com/icons/svg/1510/1510317.svg" />
+              
                   <button className="btn btn-primary" onClick={this.renderSalida}>Volver a la pagina principal</button>
               </div>
         </div>
