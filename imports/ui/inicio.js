@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CentrosComerciales from './centroComercial/centroscomerciales';
 
 class Inicio extends Component {
     render() {
@@ -9,9 +10,20 @@ class Inicio extends Component {
                         <img className="rounded-circle img-fluid mx-auto my-auto d-block" src="https://raw.githubusercontent.com/ccjaimes/proyecto3Web/master/img/discount.gif" />
                     </div>
                     <div className="col-12 col-md-6">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <div className="text-center">
                         <p>Te presentamos PINE discounts! Una aplicación que te permitirá ahorrar cuando estes en un centro comercial. Cuando quieras encontrar descuentos, puedes encontrar categorías como ropa, comida o tecnología. Tambien puedes filtrar ofertas por tus sitios favoritos y los productos que más quieras adquirir!</p>
-                    </div>
+                  
+                        </div>
+                          </div>
                 </div>
+                <br></br>
+                <br></br>
+                <CentrosComerciales/>
             </div>
         );
     }
