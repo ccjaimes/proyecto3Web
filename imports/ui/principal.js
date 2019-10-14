@@ -7,8 +7,8 @@ import Tendencia from "./tendencia";
 import Registrar from "./registrar";
 import Login from "./login";
 import Usuario from './usuario';
-import CentroComercialDetail from './centrocomercialdetail.js';
-import CentrosComerciales from './centroscomerciales.js';
+import CentroComercialDetail from './centroComercial/centrocomercialdetail';
+import CentrosComerciales from './centroComercial/centroscomerciales';
 
 class Principal extends Component {
     render() {
