@@ -15,7 +15,7 @@ class DescuentoList extends Component {
         else if (this.props.listaIds) {
             let arr = []
             for(let valor of this.props.listaIds){
-                arr.push(<Descuento key={valor} desc={DescuentoBD.findOne({_id:ObjectId(valor)})} />);
+                arr.push(<Descuento key={valor["_id"]} desc={valor} />);
             }
             return arr;
         }
