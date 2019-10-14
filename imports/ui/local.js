@@ -20,21 +20,27 @@ class Locales extends Component {
   
     return this.props.locales.map((d) => (
         
-      <div key={d._id} className="card bg-light mb-4 mt-4"   >
+    
+<div key={d._id} className="card bg-light mb-4 mt-4"   >
       <div className="row ">
           <div className="col-5">
             <img src=  {this.img()} className="card-img" alt="Imagen local"/>
           </div>
           <div className="col-md-7 ">
-             <h5 className="card-title mt-2">{d.Nombre}</h5>
-             <p className="card-text  ">L-01 </p>
-             <div className="dropdown">
-          <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Productos </button>
+             <h4 className="card-title mt-2 text-center" >{d.Nombre}</h4>
+            <h5>Productos:</h5>
+            {d.Productos.map((product) => {
+              return (
+                <li>
+                <a href="#"key={product.name}>{product.name}</a>
+                </li>
+              );
+            })}          
           </div>
+          
            </div>    
-      </div>      
+            
 </div>
-
     ));
   }
 
