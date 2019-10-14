@@ -1,3 +1,3 @@
 import { Mongo } from 'meteor/mongo';
 
-export const UsuarioBD = new Mongo.Collection('usuario');
+export default UsuarioBD = new Mongo.Collection('usuario');

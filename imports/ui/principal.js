@@ -15,16 +15,25 @@ import ListaProductos from './productos/listaProductos'
 
 class Principal extends Component {
 
-    
+    constructor(){
+        super();
+        
+        this.state={
+            log: false,
+        }
+    }
+
 
     render() {
-        const estaLoggeado = sessionStorage.getItem("Usuario");
+
+        let estaLoggeado = sessionStorage.getItem("Usuario");
+        
 
         let label,icon,link;
 
         if(estaLoggeado!=null){
             label = "Perfil";
-            link = "/registrar"
+            link = "/usuario"
             icon =<img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} alt="Perfil" />
         }
         else{
@@ -50,7 +59,7 @@ class Principal extends Component {
                         </Link>
                     </div>
                 </div>
-
+                <div style={{paddingBottom: '50px'}}>
                 <Switch>
                     <Route exact path="/">
                         <Inicio></Inicio>
@@ -79,7 +88,7 @@ class Principal extends Component {
                     
                     <Route component={NoMatchPage}></Route>
                 </Switch>
-
+                </div>
                 <footer className="fixed-bottom" style={{ backgroundColor: "#294C60" }}>
                     <div className="row py-3">
                         <div className="col-1 col-md-4">
@@ -94,7 +103,7 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to="/buscar">
+                                    <Link to="/buscar" onClick={this.logger}>
                                         <img src="https://image.flaticon.com/icons/svg/25/25313.svg" style={{ width: "30%" }} alt="Buscar" />
                                         <br></br>
                                         Buscar
@@ -108,10 +117,10 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to={link}>
+                                    <Link to={sessionStorage.getItem("Usuario") !=null? "/usuario":"/registrar"}>
                                         {icon}
                                         <br></br>
-                                        {label}
+                                        {sessionStorage.getItem("Usuario") !=null? "Perfil":"Registrarse"}
                                     </Link>
                                 </div>
                             </div>

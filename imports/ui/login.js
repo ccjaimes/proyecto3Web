@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import UsuarioBD from '../api/usuarioBD.js';
+import UsuarioBD from '../api/usuarioBD';
 import {Redirect} from 'react-router-dom';
 
 class Login extends Component {
@@ -7,7 +7,8 @@ class Login extends Component {
     constructor(){
         super();
         this.state = {
-            mostrar : false
+            mostrar : false,
+            redirect:false,
         }
 
     }
@@ -22,14 +23,18 @@ class Login extends Component {
     autentication=(event)=> {
         event.preventDefault();
 
-        let user={usuario:document.getElementById("user").value ,password: document.getElementById("passwordUser").value };
-
-        if(user.password === UsuarioBD.findOne({usuario:user.usuario}).password){
+        let user={usuario:document.getElementById("user").value ,password: document.getElementById("password").value };
+        var document1 = UsuarioBD.findOne({usuario:user.usuario});
+        if(document1 != undefined  && user.password === document1.password){
             sessionStorage.setItem("Usuario", user.usuario);
+            this.setState({redirect:true})
         }
-        this.setState({
-            mostrar : true
-        })
+        else{
+            this.setState({
+                mostrar : true
+            })
+        }
+        
 
     }
 
@@ -37,10 +42,11 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <div className="card .col-centered">
+            <div className="row"><div className="col-12"><div className="col-4"></div>
+            <div className="col-4 mx-auto">
+                <div className="card text-center">
                     <div className="card-body">
-                        <div className="card-title"><h1 className="display-3">Registro</h1></div>
+                        <div className="card-title"><h1 className="display-3">Login</h1></div>
                          <form onSubmit={this.handleSubmit} className="form-group">
                     <div>
                         <label>User</label>
@@ -50,13 +56,18 @@ class Login extends Component {
                         <label >Contraseña</label>
                         <input type="password" id="password" className="form-control" placeholder="Ingresa tu contraseña" ></input>
                     </div>
+                    <div>
+                        {this.state.mostrar ? <p style={{ color: 'red' }}>El nombre de usuario o la contraseña son incorrectas</p>:null}
+                    </div>
                     <div >
-                       <button onClick = { (event)=>{this.autentication(event)} } className="btn btn-primary">Registrarse</button>
+                       <button onClick = { (event)=>{this.autentication(event)} } className="btn btn-primary">Ingresar</button>
                     </div>
                 </form>
                 </div>
                 </div>
                 {this.renderProfile()}
+            </div>
+            </div>
             </div>
         );
     }
