@@ -59,10 +59,11 @@ class CentroComercialDetail extends Component {
         
         <div className="row">
         <div className="col-6">
-        <h1>
+          <br></br>
+        <h2>
            Ubicación
 
-          </h1>
+          </h2>
           <br>
           </br>
           <br>
@@ -84,6 +85,12 @@ class CentroComercialDetail extends Component {
 
         </div>
         </div>
+        <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
        
       </div>
     );
