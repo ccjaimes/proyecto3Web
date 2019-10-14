@@ -10,6 +10,8 @@ import Login from "./login";
 import Usuario from './usuario';
 import CentroComercialDetail from './centroComercial/centrocomercialdetail';
 import CentrosComerciales from './centroComercial/centroscomerciales';
+import ListaProductos from './productos/listaProductos'
+
 
 class Principal extends Component {
 
@@ -31,6 +33,13 @@ class Principal extends Component {
             icon =<img src="https://image.flaticon.com/icons/svg/2089/2089689.svg" style={{ width: "30%" }} alt="Registrar" />
         
         }
+        const NoMatchPage = () => {
+            return (
+                <div className="container-fluid text-center">
+              <h3>404 - Ups ,algo a salido mal!</h3>
+              </div>
+            );
+          };
 
         return (
             <Router>
@@ -64,6 +73,11 @@ class Principal extends Component {
                     <Route path="/centrocomercial/:cc">
                         <CentroComercialDetail/>
                     </Route>
+                    <Route path="/productos">
+                    <ListaProductos></ListaProductos>
+                    </Route>
+                    
+                    <Route component={NoMatchPage}></Route>
                 </Switch>
 
                 <footer className="fixed-bottom" style={{ backgroundColor: "#294C60" }}>
