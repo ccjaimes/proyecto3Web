@@ -18,16 +18,18 @@ class Usuario extends Component {
     }
 
   logOut =(event)=>{
-      e.preventDefault();
+      event.preventDefault();
       sessionStorage.setItem("Usuario", null);
       sessionStorage.clear();
-      
+      return <Redirect to="/"></Redirect>
   }  
 
   
   renderSalida=()=>{
-
-    return <Redirect to="/"/>
+    if(sessionStorage.getItem("Usuario")==null){
+      
+      return <Redirect to="/"/>
+    }
 
   }
 
@@ -51,14 +53,15 @@ class Usuario extends Component {
 
   render() {
     return (
-      <div>
-      <div hidden={this.log()} >
+      <div className="row">
+        <div className="col-12">
+      <div hidden={this.log()} className="col-4 mx-auto" >
           <div className="card">
           
             <div className="card-body">
                     <div className="card-title">{this.state.usuario}</div>
                     <img src="https://image.flaticon.com/icons/svg/483/483361.svg" className="rounded-circle" alt="Foto de perfil"></img>
-                    <button className="btn btn-primary" onClick={(event)=>this.logOut(event)}>Log Out</button>
+                    <button className="btn btn-danger" onClick={(event)=>this.logOut(event)}>Log Out</button>
                 </div>
           </div>
           {this.renderSalida()}
@@ -69,12 +72,13 @@ class Usuario extends Component {
           <div className="card-img" variant="top" src="https://image.flaticon.com/icons/svg/1510/1510317.svg" />
               <div className="card-body">
                   <div className="card-title">Ops! Pagina no encontrada</div>
-                  <img src="" className="rounded-circle" alt="Foto de perfil"></img>
-                  <button className="btn btn-danger" onClick={(event)=>this.logOut(event)}>Log Out</button>
+                  <button className="btn btn-primary" onClick={this.renderSalida}>Volver a la pagina principal</button>
               </div>
         </div>
       </div>
       {this.renderSalida()}
+      </div>
+     
       </div>
     );
   }

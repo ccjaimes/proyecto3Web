@@ -29,7 +29,7 @@ class Principal extends Component {
 
         let label,icon,link;
 
-        if(estaLoggeado!=null || estaLoggeado!=undefined){
+        if(estaLoggeado!=null){
             label = "Perfil";
             link = "/usuario"
             icon =<img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} alt="Perfil" />
@@ -103,10 +103,10 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to={link}>
+                                    <Link to={sessionStorage.getItem("Usuario") !=null? "/usuario":"/registrar"}>
                                         {icon}
                                         <br></br>
-                                        {label}
+                                        {sessionStorage.getItem("Usuario") !=null? "Perfil":"Registrarse"}
                                     </Link>
                                 </div>
                             </div>
