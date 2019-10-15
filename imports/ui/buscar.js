@@ -39,15 +39,16 @@ class Buscar extends Component {
 
     render() {
 
+        console.log(this.props.centrosComerciales)
         let filtrados = this.props.centrosComerciales.filter(
             (centro) =>{
-                return centro.nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !=-1;
+                return centro.nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !==-1;
         }
         );
-        
+        console.log(filtrados)
         let locales = this.props.locales.filter(
             (local) =>{
-                return local.Nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !=-1;
+                return local.Nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !==-1;
         }
         );
 
@@ -63,7 +64,7 @@ class Buscar extends Component {
                 <ul>
                 {filtrados.map((centro)=>
                 {
-                    <CentroComercialCard key={centro._id} value={centro} />
+                   return <CentroComercialCard key={centro._id} value={centro} />
                 })}
                 </ul>
                 <br></br>
@@ -74,7 +75,7 @@ class Buscar extends Component {
                 <ul>
                 {locales.map((local)=>
                 {
-                    <LocalCard key={local._id} value={local} />
+                   return <LocalCard key={local._id} value={local} />
                 })}
                 </ul>
 
@@ -85,8 +86,10 @@ class Buscar extends Component {
 }
 
 export default withTracker(() => {
+    console.log(CentrosComercialesBD.find({}).fetch());
     return {
       centrosComerciales: CentrosComercialesBD.find({}).fetch(),
       locales: LocalBD.find({}).fetch()
+      
     };
   })(Buscar);
