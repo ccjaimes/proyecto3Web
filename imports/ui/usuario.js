@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link , Redirect} from 'react-router-dom';
 import UsuarioBD from '../api/usuarioBD';
 import { isNull } from "util";
 
@@ -13,21 +13,24 @@ class Usuario extends Component {
     this.state = {
       usuario: data != undefined ? data.usuario : null,
       correo: data != undefined ? data.correo : null,
-      categoria: data != undefined ? data.categoria : null
+      categoria: data != undefined ? data.categoria : null,
+      sali:false
     }
+    this.renderSalida = this.renderSalida.bind(this)
   }
 
   logOut = (event) => {
     event.preventDefault();
+    this.setState({
+      sali:true
+    })
     sessionStorage.setItem("Usuario", null);
     sessionStorage.clear();
-    return <Redirect to="/tendencias"></Redirect>
   }
 
 
   renderSalida = () => {
-    if (sessionStorage.getItem("Usuario") === null) {
-
+    if (this.state.sali) {
       return <Redirect to="/tendencias" />
     }
 
@@ -43,7 +46,11 @@ class Usuario extends Component {
       categoria: dato.categoria
     })
   }
-
+  salir(){
+    this.setState({
+      sali:true
+    })
+  }
   log() {
     if (this.state.usuario == null) {
       return true
@@ -65,12 +72,13 @@ class Usuario extends Component {
                   <p>{this.state.correo}</p></div>
                 <label>Categoria</label>
                 <p>{this.state.categoria}</p>
+                {this.renderSalida()}
                 <button className="btn btn-danger" onClick={(event)=>this.logOut(event)}>Log Out</button>
-              
+                
               </div>
               
             </div>
-            {this.renderSalida()}
+          
           </div>
           <div hidden={!this.log()}>
             <div className="card">
@@ -78,12 +86,11 @@ class Usuario extends Component {
               <div className="card-body">
                 <div className="card-title">Ops! Pagina no encontrada</div>
                 <img className="card-img" variant="top" src="https://image.flaticon.com/icons/svg/1510/1510317.svg" />
-
-                <button className="btn btn-primary" onClick={this.renderSalida}>Volver a la pagina principal</button>
+                {this.renderSalida()}
+                <button className="btn btn-primary" onClick={this.salir}>Volver a la pagina principal</button>
               </div>
             </div>
           </div>
-          {this.renderSalida()}
         </div>
 
       </div>

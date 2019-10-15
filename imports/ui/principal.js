@@ -130,10 +130,10 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to={sessionStorage.getItem("Usuario") !=null? "/usuario":"/registrar"} onClick={this.logger}>
+                                    <Link to={sessionStorage.getItem("Usuario") !==null? "/usuario":"/registrar"} onClick={this.logger}>
                                         {icon}
                                         <br></br>
-                                        {sessionStorage.getItem("Usuario") !=null? "Perfil":"Registrarse"}
+                                        {sessionStorage.getItem("Usuario") !==null? "Perfil":"Registrarse"}
                                     </Link>
                                 </div>
                             </div>
