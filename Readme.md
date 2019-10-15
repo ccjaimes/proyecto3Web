@@ -12,7 +12,7 @@ Una vez descargado el proyecto, ejecutar el siguiente comando en el directorio l
 meteor npm install 
 ```
 
-#### Para ejecutar el proyecto con la base de datos de mongo atlas (DESDE GIT BASH):
+Para ejecutar el proyecto con la base de datos de Mongo Atlas (DESDE GIT BASH):
 
 ```bash
 MONGO_URL="mongodb+srv://admin:Admin1234@cluster0-7qmuh.mongodb.net/test?retryWrites=true&w=majority" meteor
