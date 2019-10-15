@@ -32,10 +32,10 @@ localhost:3000
 
 Para usar la aplicación web lo puede hacer mediante un usuario creado o registrando uno nuevo. Si se escoge la primera opción puede hacer uso de un usuario de prueba cuyos datos se encuentran a continuación:
 
-```bash
-user: usuario7
-Contraseña: usuario7
-```
+
+> user: usuario7
+> Contraseña: usuario7
+
 
 ### URL del video
 
