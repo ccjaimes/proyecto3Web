@@ -6,7 +6,7 @@ class Descuento extends Component {
     {
         return (
             <div className="card img-fluid">
-                <img className="card-img-top" src={'../../img/detailDesc'+this.props.desc.categoria} alt="CardBackground" style={{ width: "100%" }} />
+                <img className="card-img-top" src={'https://raw.githubusercontent.com/ccjaimes/proyecto3Web/master/img/detailDesc'+this.props.desc.categoria+'.PNG'} alt="CardBackground" style={{ width: "100%" }} />
                 <div className="card-img-overlay">
                     <div className="row">
                         <h4 className="card-title">{this.props.desc.porcentaje}</h4>

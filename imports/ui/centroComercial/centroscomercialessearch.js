@@ -23,7 +23,7 @@ class CentrosComercialesSearch extends Component {
             Centros Comerciales        
           </h2>
         </div>
-        <div class="scro">
+        <div className="scro">
        
           {this.renderCentroComercial()}
 

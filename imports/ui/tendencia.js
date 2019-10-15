@@ -5,7 +5,7 @@ import DescuentoList from './descuento/descuentoList';
 class Tendencia extends Component {
     render() {
         return (
-            <DescuentoList categoria={parseInt(1 + Math.random()*2)}/>
+            <DescuentoList categoria={parseInt(1)}/>
         );
     }
 }
