@@ -23,7 +23,11 @@ Para ejecutar el proyecto con la base de datos de Mongo Atlas (DESDE GIT BASH):
 ```bash
 MONGO_URL="mongodb+srv://admin:Admin1234@cluster0-7qmuh.mongodb.net/test?retryWrites=true&w=majority" meteor
 ```
+Abrir en un navegador mediante la dirección:
 
+```bash
+localhost:3000
+```
 
 ### URL del video
 
