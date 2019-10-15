@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link , Redirect} from 'react-router-dom';
 
 //COMPONENTES
 import Inicio from "./inicio";
@@ -22,6 +22,7 @@ class Principal extends Component {
 
         this.state = {
             log: false,
+            volver:false,
         }
 
         this.logger = this.logger.bind(this);
@@ -31,6 +32,18 @@ class Principal extends Component {
         this.setState({
             log: true
         })
+    }
+
+    salir =()=>{
+        this.setState({
+            volver:true
+        })
+    }
+
+    volver(){
+        if(this.state.volver){
+            return <Redirect to="/"></Redirect>
+        }
     }
 
     render() {
@@ -56,7 +69,14 @@ class Principal extends Component {
         const NoMatchPage = () => {
             return (
                 <div className="container-fluid text-center">
-                    <h3>404 - Ups ,algo a salido mal!</h3>
+                    
+                    <img src="https://image.flaticon.com/icons/svg/0/697.svg" style={{ width: "20%" }} alt="Error 404" />
+                    <br></br>
+                    <h2 style={{ color: "#FFC49B" }}>404 - Ups, algo a salido mal!</h2>
+                    {this.volver()}
+                    <br></br>
+                    <br></br>
+                    <button className="btn btn-primary" onClick={this.salir}>Volver a la pagina principal</button>
                 </div>
             );
         };
