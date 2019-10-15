@@ -7,6 +7,8 @@ import CentroComercialCard from './centroComercial/centrocomercialcard';
 import CentrosComercialesBD from '../api/centroscomercialesBD';
 import "./css/style.css";
 import LocalBD from '../api/localBD';
+import {ProductoDB} from'../api/productoBD'
+import { Link } from 'react-router-dom';
 
 class Buscar extends Component {
     constructor(props) {
@@ -49,32 +51,52 @@ class Buscar extends Component {
                 return local.nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             }
         );
+let productos=this.props.productos.filter(
+    (proucto)=>{
+        return proucto.nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+    }
+)
 
         return (
             <div>
                 <div className="md-form mt-0">
                     <input className="form-control" type="text" placeholder="Search" aria-label="Search" value={this.state.search} onChange={(this.updateSearch.bind(this))} />
                 </div>
+
                 <hr></hr>
                 <h2>Centros Comerciales</h2>
+
                 <br></br>
                 <div className="scro">
                     {filtrados.map((centro) => {
                         return <div className="col-6"><CentroComercialCard key={centro._id} value={centro} /></div>
                     })}
+                   
                 </div>
-                <br></br>
+                <Link to="/centroscomerciales">
+                        <button className="btn btn-secondary" style={{borderRadius: '12px' ,backgroundColor:'#E8B38D'  }}>Explora más!!</button>
+                </Link>
                 <hr></hr>
-                <br></br>
                 <h2>Locales</h2>
-                <br></br>
-                <ul>
                 <div className="row">
                     {locales.map((local) => {
                         return <div className="col-6"><LocalCard key={local._id} value={local} /></div>
                     })}
+                    </div>    
+                <hr></hr>
+                <h2>Productos</h2>
+                <div className="row" style={{marginBottom:'3rem'}}>
+                    <div className="col-8">
+                    {productos.map((producto) => {
+                        return <ul><h5>{producto.nombre}</h5></ul>
+                    })}
                     </div>
-                </ul>
+                    <div className="col-4">
+                        <Link to="/productos">
+                        <button className="btn btn-secondary" style={{borderRadius: '12px' ,backgroundColor:'#E8B38D' }}>Explora más!!</button>
+                        </Link>
+                    </div>
+                </div> 
 
 
             </div>
@@ -83,9 +105,10 @@ class Buscar extends Component {
 }
 
 export default withTracker(() => {
-    console.log(LocalBD.find({}).fetch());
+    
     return {
         centrosComerciales: CentrosComercialesBD.find({}).fetch(),
-        locales: LocalBD.find({}).fetch()
+        locales: LocalBD.find({}).fetch(), 
+        productos:ProductoDB.find({}).fetch()
     };
 })(Buscar);

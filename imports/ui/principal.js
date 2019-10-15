@@ -12,53 +12,54 @@ import CentroComercialDetail from './centroComercial/centrocomercialdetail';
 import CentrosComerciales from './centroComercial/centroscomerciales';
 import ListaProductos from './productos/listaProductos';
 import Buscar from './buscar';
+import Recomendado from './recomendado';
 
 
 class Principal extends Component {
 
-    constructor(){
+    constructor() {
         super();
-        
-        this.state={
+
+        this.state = {
             log: false,
         }
 
         this.logger = this.logger.bind(this);
     }
 
-    logger(){
+    logger() {
         this.setState({
-            log:true
+            log: true
         })
     }
 
     render() {
 
         let estaLoggeado = sessionStorage.getItem("Usuario");
-        if(!this.state.log){
+        if (!this.state.log) {
             estaLoggeado = null
         }
 
-        let label,icon,link;
+        let label, icon, link;
 
-        if(estaLoggeado!=null){
+        if (estaLoggeado != null) {
             label = "Perfil";
             link = "/usuario"
-            icon =<img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} alt="Perfil" />
+            icon = <img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} alt="Perfil" />
         }
-        else{
+        else {
             label = "Registrarse";
             link = "/registrar"
-            icon =<img src="https://image.flaticon.com/icons/svg/2089/2089689.svg" style={{ width: "30%" }} alt="Registrar" />
-        
+            icon = <img src="https://image.flaticon.com/icons/svg/2089/2089689.svg" style={{ width: "30%" }} alt="Registrar" />
+
         }
         const NoMatchPage = () => {
             return (
                 <div className="container-fluid text-center">
-              <h3>404 - Ups ,algo a salido mal!</h3>
-              </div>
+                    <h3>404 - Ups ,algo a salido mal!</h3>
+                </div>
             );
-          };
+        };
 
         return (
             <Router>
@@ -69,38 +70,40 @@ class Principal extends Component {
                         </Link>
                     </div>
                 </div>
-                <div style={{paddingBottom: '50px'}}>
-                <Switch>
-                    <Route exact path="/">
-                        <Inicio></Inicio>
-                    </Route>
-                    <Route path="/tendencia">
-                        <Tendencia></Tendencia>
-                    </Route>
-                    <Route path="/registrar">
-                        <Reg></Reg>
-                    </Route>
-                    <Route path="/login">
-                        <Login></Login>
-                    </Route>
-                    <Route path="/usuario">
-                        <Usuario></Usuario>
-                    </Route>
-                    <Route path="/centroscomerciales">
-                        <CentrosComerciales/>
-                    </Route>
-                    <Route path="/centrocomercial/:cc">
-                        <CentroComercialDetail/>
-                    </Route>
-                    <Route path="/productos">
-                    <ListaProductos></ListaProductos>
-                    </Route>
-                    <Route path="/buscar">
-                        <Buscar></Buscar>
-                    </Route>
-                    
-                    <Route component={NoMatchPage}></Route>
-                </Switch>
+                <div style={{ paddingBottom: '50px' }}>
+                    <Switch>
+                        <Route exact path="/">
+                            <Inicio></Inicio>
+                        </Route>
+                        <Route path="/tendencia">
+                            <Tendencia></Tendencia>
+                        </Route>
+                        <Route path="/registrar">
+                            <Reg></Reg>
+                        </Route>
+                        <Route path="/login">
+                            <Login></Login>
+                        </Route>
+                        <Route path="/usuario">
+                            <Usuario></Usuario>
+                        </Route>
+                        <Route path="/centroscomerciales">
+                            <CentrosComerciales />
+                        </Route>
+                        <Route path="/centrocomercial/:cc">
+                            <CentroComercialDetail />
+                        </Route>
+                        <Route path="/productos">
+                            <ListaProductos></ListaProductos>
+                        </Route>
+                        <Route path="/buscar">
+                            <Buscar ></Buscar>
+                        </Route>
+                        <Route path="/recomendado">
+                            <Recomendado></Recomendado>
+                        </Route>
+                        <Route component={NoMatchPage}></Route>
+                    </Switch>
                 </div>
                 <footer className="fixed-bottom" style={{ backgroundColor: "#294C60" }}>
                     <div className="row py-3">
@@ -130,10 +133,10 @@ class Principal extends Component {
                                     </Link>
                                 </div>
                                 <div className="col-3 text-center" style={{ filter: "invert(100%)" }}>
-                                    <Link to={sessionStorage.getItem("Usuario") !==null? "/usuario":"/registrar"} onClick={this.logger}>
+                                    <Link to={sessionStorage.getItem("Usuario") != null ? "/usuario" : "/registrar"} onClick={this.logger}>
                                         {icon}
                                         <br></br>
-                                        {sessionStorage.getItem("Usuario") !==null? "Perfil":"Registrarse"}
+                                        {sessionStorage.getItem("Usuario") != null ? "Perfil" : "Registrarse"}
                                     </Link>
                                 </div>
                             </div>
