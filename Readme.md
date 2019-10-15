@@ -28,3 +28,5 @@ MONGO_URL="mongodb+srv://admin:Admin1234@cluster0-7qmuh.mongodb.net/test?retryWr
 ### URL del video
 
 En esta [URL](https://www.youtube.com) puedes encontrar un video en el que se muestra la funcionalidad de la aplicación web. 
+En esta [URL](https://youtu.be/3hNu81mHtfE) puedes encontrar un video con la propuesta de valor de la aplicación.
+En esta [URL](ec2-52-0-225-12.compute-1.amazonaws.com:3000) puedes encontrar la página web corriendo
