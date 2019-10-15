@@ -125,7 +125,7 @@ render() {
       }}
       onSubmit={values => {
         console.log("Heme aquí")
-        var data = {usuario:document.getElementById("username").value,password:document.getElementById("password").value,correo:document.getElementById("email").value}
+        var data = {usuario:document.getElementById("username").value,password:document.getElementById("password").value,correo:document.getElementById("email").value,categoria:document.getElementById("tipo").value}
         if(UsuarioBD.findOne({usuario:data.usuario})!=null){
             this.setState({
               textoUsuario:'Este nombre de usuario ya esta en uso',
@@ -167,6 +167,14 @@ render() {
                     <br></br>
                     <Field name="email" validate={this.validateEmail} placeholder="Ej: 123@mail.com"/>
                     {errors.email && touched.email && this.state.mostrarEmail ? <p style={{ color: 'red' }}>{this.state.textoEmail}</p>:null}
+                    <br></br>
+                    <div>
+                        <label>Tipo de Usuario</label>
+                        <select name="tipo" id="tipo">
+                            <option value="Cliente">Cliente</option>
+                            <option value="Administrador">Administrador</option>
+                        </select>
+                    </div>
                     <br></br>
                     <p className="text-center">
                     ¿Ya tienes una cuenta? Ingresa <Link to="/login">aquí</Link>

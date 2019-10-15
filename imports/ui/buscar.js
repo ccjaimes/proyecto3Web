@@ -5,18 +5,29 @@ import CentrosComercialesBD  from '../api/centroscomercialesBD';
 import LocalBD from '../api/localBD';
 
 class Buscar extends Component {
-
-    state= {
+    constructor(){
+        super();
+    this.state= {
         centrosComerciales:CentrosComercialesBD.find({}).fetch(),
         locales:LocalBD.find({}).fetch(),
         centros:[],
         search:'',
     }
 
+    this.componentDidMount = this.componentDidMount.bind(this);
+}
+
 
     updateSearch(event) {
         this.setState ({search:event.target.value.substr(0,20)});
     }
+
+    componentDidMount = () => {
+        this.setState({
+            centrosComerciales: CentrosComercialesBD.find({}).fetch(),
+            locales: LocalBD.find({}).fetch() 
+        })}
+     
 
     render() {
 
@@ -35,7 +46,7 @@ class Buscar extends Component {
 
         return (
             <div>
-                <div class="md-form mt-0">
+                <div className="md-form mt-0">
                 <input className="form-control" type="text" placeholder="Search" aria-label="Search" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
                  </div>
                   <hr></hr>

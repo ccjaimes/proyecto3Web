@@ -13,7 +13,7 @@ class Usuario extends Component {
         this.state={
             usuario: data != undefined ? data.usuario:null,
             correo: data != undefined ? data.correo:null,
-            rol:data != undefined ? data.rol:null
+            categoria:data != undefined ? data.categoria:null
         }
     }
 
@@ -40,7 +40,7 @@ class Usuario extends Component {
       this.setState({
           usuario:dato.usuario,
           correo:dato.correo,
-          rol:dato.rol
+          categoria:dato.categoria
       })
   }
 
@@ -61,6 +61,10 @@ class Usuario extends Component {
             <div className="card-body">
                     <div className="card-title">{this.state.usuario}</div>
                     <img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} className="rounded-circle" alt="Foto de perfil"></img>
+                    <div><label>Correo</label>
+                      <p>{this.state.correo}</p></div>
+                    <label>Categoria</label>
+                    <p>{this.state.categoria}</p>
                     <button className="btn btn-danger" onClick={(event)=>this.logOut(event)}>Log Out</button>
                 </div>
           </div>

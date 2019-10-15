@@ -22,6 +22,8 @@ class Principal extends Component {
         this.state={
             log: false,
         }
+
+        this.logger = this.logger.bind(this);
     }
 
     logger(){
