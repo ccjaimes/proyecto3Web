@@ -28,7 +28,7 @@ renderProfile = () => {
 }  
 
 autentication=(event)=> {
-        var data = {usuario:document.getElementsByName("username")[0].value,password:document.getElementsByName("password")[0].value,correo:document.getElementsByName("email")[0].value,categoria:document.getElementsByName("tipo")[0].value}
+        var data = {usuario:document.getElementsByName("username")[0].value,password:document.getElementsByName("password")[0].value,correo:document.getElementsByName("email")[0].value,categoriaFavorita:document.getElementsByName("tipo")[0].value}
         var mailerror= this.validateEmail(data.correo);
 
         var passError = this.validatePassword(data.password);
