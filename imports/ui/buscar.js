@@ -62,7 +62,7 @@ class Buscar extends Component {
                 <ul>
                 <div className="row">
                     {filtrados.map((centro) => {
-                        return <CentroComercialCard key={centro._id} value={centro} />
+                        return <div className="col-6"><CentroComercialCard key={centro._id} value={centro} /></div>
                     })}
                     </div>
                 </ul>
@@ -74,7 +74,7 @@ class Buscar extends Component {
                 <ul>
                 <div className="row">
                     {locales.map((local) => {
-                        return <LocalCard key={local._id} value={local} />
+                        return <div className="col-6"><LocalCard key={local._id} value={local} /></div>
                     })}
                     </div>
                 </ul>

@@ -14,7 +14,7 @@ export default class LocalCard extends Component  {
     render() 
     {
         return (
-          <div className="col-6">
+          
  <div className="w3-card">
             <img src={this.darImage()} alt="CardLocal"  width="400" height="300" />
                 
@@ -24,7 +24,7 @@ export default class LocalCard extends Component  {
             </div>
           
           </div>
-          </div>
+          
           
         );
     }
