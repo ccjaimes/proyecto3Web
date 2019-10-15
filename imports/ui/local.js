@@ -27,13 +27,15 @@ class Locales extends Component {
             <img src={this.img()} className="card-img" alt="Imagen local" />
           </div>
           <div className="col-md-7 ">
-            <h4 className="card-title mt-2 text-center" >{d.Nombre}</h4>
+            <h4 className="card-title mt-2 text-center" >{d.nombre}</h4>
             <h5>Productos:</h5>
-            {d.productos.map((product) => {
+            {d.productos.map((product,i) => {
               return (
-                <li>
-                  <a href="#" key={product.name}>{product.name}</a>
+                
+                <li key={i} className="lista">
+                  <a >{product.nombre}</a>
                 </li>
+                
               );
             })}
           </div>
