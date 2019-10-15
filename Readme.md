@@ -34,8 +34,8 @@ Para usar la aplicación web lo puede hacer mediante un usuario creado o registr
 
 
 ```bash
-user: usuario7
-Contraseña: usuario7
+user: usuario3
+Contraseña: usuario3
 ```
 
 
