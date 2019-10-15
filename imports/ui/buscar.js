@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import LocalCard from './localcard';
 import CentroComercialCard from './centroComercial/centrocomercialcard';
 import CentrosComercialesBD from '../api/centroscomercialesBD';
+import "./css/style.css";
 import LocalBD from '../api/localBD';
 
 class Buscar extends Component {
@@ -37,8 +38,6 @@ class Buscar extends Component {
 
 
     render() {
-
-        console.log(this.props.centrosComerciales)
         let filtrados = this.props.centrosComerciales.filter(
             (centro) => {
                 return centro.nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
@@ -47,7 +46,7 @@ class Buscar extends Component {
 
         let locales = this.props.locales.filter(
             (local) => {
-                return local.Nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+                return local.nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             }
         );
 
@@ -59,11 +58,11 @@ class Buscar extends Component {
                 <hr></hr>
                 <h2>Centros Comerciales</h2>
                 <br></br>
-                <ul>
+                <div className="scro">
                     {filtrados.map((centro) => {
                         return <CentroComercialCard key={centro._id} value={centro} />
                     })}
-                </ul>
+                </div>
                 <br></br>
                 <hr></hr>
                 <br></br>
@@ -82,9 +81,7 @@ class Buscar extends Component {
 }
 
 export default withTracker(() => {
-    
     console.log(LocalBD.find({}).fetch());
-    console.log(CentrosComercialesBD.find({}).fetch());
     return {
         centrosComerciales: CentrosComercialesBD.find({}).fetch(),
         locales: LocalBD.find({}).fetch()
