@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { CentrosComercialesBD } from '../../api/centroscomercialesBD';
+import  CentrosComercialesBD  from '../../api/centroscomercialesBD.js';
 import CentroComercialCard from "./centrocomercialcard.js";
  import "../css/style.css";
 class CentrosComerciales extends Component {

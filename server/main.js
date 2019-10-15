@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import {UsuarioBD} from '../imports/api/usuarioBD';
 import {descuentoBD} from '../imports/api/descuentoBD.js';
-import {CentrosComercialesBD} from '../imports/api/centroscomercialesBD.js';
+import CentrosComercialesBD from '../imports/api/centroscomercialesBD.js';
 
 
 Meteor.startup(() => {

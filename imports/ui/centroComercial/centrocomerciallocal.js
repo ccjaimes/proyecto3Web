@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Local } from '../../api/localBD.js';
+import  Local  from '../../api/localBD.js';
 
 
 class CentroComercialLocal extends Component {

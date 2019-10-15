@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { CentrosComercialesBD } from '../../api/centroscomercialesBD.js';
+import  CentrosComercialesBD  from '../../api/centroscomercialesBD.js';
 import CentroComercialLocal from "./centrocomerciallocal.js";
 
 

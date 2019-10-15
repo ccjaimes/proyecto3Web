@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LocalCard from './localcard';
 import CentroComercialCard from './centroComercial/centrocomercialcard';
-import CentrosComercialesBD from '../api/centroscomercialesBD';
+import CentrosComercialesBD  from '../api/centroscomercialesBD';
 import LocalBD from '../api/localBD';
 
 class Buscar extends Component {
