@@ -58,21 +58,11 @@ class Buscar extends Component {
                 <hr></hr>
                 <h2>Centros Comerciales</h2>
                 <br></br>
-<<<<<<< HEAD
                 <div className="scro">
-=======
-                <ul>
-                <div className="row">
->>>>>>> f30e69aeb2c3d770c9a8f2e57f4f2708f5e13cfd
                     {filtrados.map((centro) => {
                         return <div className="col-6"><CentroComercialCard key={centro._id} value={centro} /></div>
                     })}
-<<<<<<< HEAD
                 </div>
-=======
-                    </div>
-                </ul>
->>>>>>> f30e69aeb2c3d770c9a8f2e57f4f2708f5e13cfd
                 <br></br>
                 <hr></hr>
                 <br></br>
