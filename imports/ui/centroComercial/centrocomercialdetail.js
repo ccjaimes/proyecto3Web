@@ -9,13 +9,13 @@ class CentroComercialDetail extends Component {
 
   darlocales(){
 
-    if(this.props.centroComercial.Locales==undefined||this.props.centroComercial.Locales.length==0){
+    if(this.props.centroComercial.locales==undefined||this.props.centroComercial.locales.length==0){
 
       return <h4>No hay locales asociados.</h4>;
 
     }
     else{
-      return this.props.centroComercial.Locales.map((d,e) => (
+      return this.props.centroComercial.locales.map((d,e) => (
 
         <CentroComercialLocal key={e} value={d} />
       

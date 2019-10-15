@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import Local from '../api/localBD.js';
-import style from './style.css'
+import Local from '../../api/localBD.js';
+import style from '../style.css'
+import LocalProductos from './localproductos.js';
+
 
 class Locales extends Component {
 
   img() {
-    var img = ["https://image.shutterstock.com/image-vector/grocery-store-front-260nw-1010453878.jpg",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfDNY4Pw3ulrWXo5zNxkx0j7AiQDtDkmPHD0fu8smzTpKGsWB6",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBlYF2f7-B0nr6DUtrnJq4RoHchOraILE9vV1MkRK2Y0UnDNFr",
-      "https://cdn.pixabay.com/photo/2017/08/31/12/44/awning-2700634__340.png",
-      "https://cdn4.iconfinder.com/data/icons/shopping-113/24/store_local_shop_building-512.png"];
+    var img = ["https://static.wixstatic.com/media/efd15e_a47028401ba14435bab512449a4d90e6~mv2.png",
+      "https://cdn2.iconfinder.com/data/icons/retail-3/128/SHOP-512.png",
+      "https://cdn2.iconfinder.com/data/icons/seo-marketing-set6/512/Store_Promotion-01-512.png",
+      "https://cdn2.iconfinder.com/data/icons/e-commerce-icons-2/256/Ecommerce_Icons_Rose_Color-100-256.png",
+      "https://cdn1.iconfinder.com/data/icons/search-engine-optimisation-seo/44/seo_icons-50-512.png"];
 
     return img[Math.floor(Math.random() * img.length)];
   }
@@ -21,23 +23,14 @@ class Locales extends Component {
     return this.props.locales.map((d) => (
 
       
-      <div key={d._id} className="card bg-light mb-4 mt-4"   >
+      <div key={d._id} className="card  mb-4 mt-4 "   >
         <div className="row ">
           <div className="col-5">
             <img src={this.img()} className="card-img" alt="Imagen local" />
           </div>
           <div className="col-md-7 ">
             <h4 className="card-title mt-2 text-center" >{d.nombre}</h4>
-            <h5>Productos:</h5>
-            {d.productos.map((product,i) => {
-              return (
-                
-                <li key={i} className="lista">
-                  <a >{product.nombre}</a>
-                </li>
-                
-              );
-            })}
+            <LocalProductos/>
           </div>
 
         </div>
