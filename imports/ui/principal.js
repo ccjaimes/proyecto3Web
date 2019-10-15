@@ -17,8 +17,8 @@ import Recomendado from './recomendado';
 
 class Principal extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             log: false,
@@ -79,7 +79,7 @@ class Principal extends Component {
                             <Tendencia></Tendencia>
                         </Route>
                         <Route path="/registrar">
-                            <Reg></Reg>
+                            <Reg logger = {this.logger}></Reg>
                         </Route>
                         <Route path="/login">
                             <Login></Login>

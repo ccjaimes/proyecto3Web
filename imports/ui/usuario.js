@@ -67,14 +67,14 @@ class Usuario extends Component {
           <div style={{ display: "flex",
            justifyContent: "center",
            alignItems: "center"}}>
-            <div className="card mx-auto">
+            <div className="card mx-auto text-center">
 
               <div className="card-body">
-                <div className="card-title">{this.state.usuario}</div>
+                <div className="card-title"><h1>{this.state.usuario}</h1></div>
                 <img src="https://image.flaticon.com/icons/svg/483/483361.svg" style={{ width: "30%" }} className="rounded-circle" alt="Foto de perfil"></img>
-                <div><label>Correo</label>
+                <div><h3>Correo</h3>
                   <p>{this.state.correo}</p></div>
-                <label>Categoria</label>
+                <h3>Categoria</h3>
                 <p>{this.state.categoria}</p>
                 {this.renderSalida()}
                 <button className="btn btn-danger" onClick={(event)=>this.logOut(event)}>Log Out</button>
@@ -88,10 +88,10 @@ class Usuario extends Component {
           <div style={{ display: "flex",
            justifyContent: "center",
            alignItems: "center"}}>
-            <div className="card mx-auto">
+            <div className="card mx-auto text-center">
 
               <div className="card-body">
-                <div className="card-title">Ops! Pagina no encontrada</div>
+                <div className="card-title"><h2>Ops! Pagina no encontrada</h2></div>
                 <img className="card-img" variant="top" src="https://image.flaticon.com/icons/svg/1510/1510317.svg" />
                 {this.renderSalida()}
                 <button className="btn btn-primary" onClick={this.salir}>Volver a la pagina principal</button>

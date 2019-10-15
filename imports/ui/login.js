@@ -48,7 +48,7 @@ class Login extends Component {
            alignItems: "center"}}>
             
                 <div className="card text-center mx-auto">
-                    <div className="card-body">
+                    <div className="card-body" style={{backgroundColor: '#FFC49B'}}>
                         <div className="card-title"><h1 className="display-3">Login</h1></div>
                          <form onSubmit={this.handleSubmit} className="form-group">
                     <div>

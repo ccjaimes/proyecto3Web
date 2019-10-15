@@ -19,8 +19,6 @@ class Buscar extends Component {
             search: '',
         }
 
-        // this.componentDidMount = this.componentDidMount.bind(this);
-
     }
 
 
@@ -87,9 +85,11 @@ let productos=this.props.productos.filter(
                 <h2>Productos</h2>
                 <div className="row" style={{marginBottom:'3rem'}}>
                     <div className="col-8">
+                        <ul>
                     {productos.map((producto) => {
-                        return <ul><h5>{producto.nombre}</h5></ul>
+                        return <li key={producto.nombre}><h5>{producto.nombre}</h5></li>
                     })}
+                    </ul>
                     </div>
                     <div className="col-4">
                         <Link to="/productos">

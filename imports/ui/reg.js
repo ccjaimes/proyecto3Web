@@ -23,6 +23,7 @@ class Reg extends Component {
 renderProfile = () => { 
   if (this.state.redirect) { 
     var str = '/usuario/'.concat(sessionStorage.getItem("Usuario"))
+    this.props.logger;
     return <Redirect to = '/usuario'/> 
   } 
 }  
@@ -59,6 +60,7 @@ autentication=(event)=> {
           this.setState({
             redirect:true,
           })
+          this.props.logger;
         }
 
 
