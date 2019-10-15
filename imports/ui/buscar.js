@@ -35,7 +35,9 @@ class Buscar extends Component {
 
         return (
             <div>
-                  <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} style={{width: "300px"}} style={{backgroundColor:'#ffffff'}}/>
+                <div class="md-form mt-0">
+                <input className="form-control" type="text" placeholder="Search" aria-label="Search" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
+                 </div>
                   <hr></hr>
                 <h2>Centros Comerciales</h2>
                 <br></br>
