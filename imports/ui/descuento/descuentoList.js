@@ -12,11 +12,12 @@ class DescuentoList extends Component {
                 <Descuento key={d._id} desc={d} />
             ));
         }
-        else if (this.props.listaIds) {
+        else if (this.props.listaids) {
             let arr = []
-            for (let valor of this.props.listaIds) {
+            for (let valor of this.props.listaids) {
                 arr.push(<Descuento key={valor["_id"]} desc={valor} />);
             }
+            console.log(arr);
             return arr;
         }
     }
