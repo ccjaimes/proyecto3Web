@@ -56,7 +56,7 @@ class Principal extends Component {
         const NoMatchPage = () => {
             return (
                 <div className="container-fluid text-center">
-                    <h3>404 - Ups ,algo a salido mal!</h3>
+                    <h3>404 - Ups ,algo ha salido mal!</h3>
                 </div>
             );
         };

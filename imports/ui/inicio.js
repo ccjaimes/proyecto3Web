@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CentrosComerciales from './centroComercial/centroscomerciales';
 import CentrosComercialesSearch from './centroComercial/centroscomercialessearch';
-import Local from './local';
+import Local from './local/local';
 
 class Inicio extends Component {
     render() {

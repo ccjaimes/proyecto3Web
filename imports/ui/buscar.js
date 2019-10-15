@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { withTracker } from 'meteor/react-meteor-data';
 
-import LocalCard from './localcard';
+import LocalCard from './local/localcard';
 import CentroComercialCard from './centroComercial/centrocomercialcard';
 import CentrosComercialesBD from '../api/centroscomercialesBD';
 import "./css/style.css";
