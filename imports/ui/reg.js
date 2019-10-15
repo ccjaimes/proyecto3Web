@@ -172,9 +172,9 @@ render() {
                     <div>
                         <label>Categorias</label>
                         <select name="tipo" id="tipo">
-                            <option value="C1">C1</option>
-                            <option value="C2">C2</option>
-                            <option value="C3">C3</option>
+                            <option value="1">C1</option>
+                            <option value="2">C2</option>
+                            <option value="3">C3</option>
                         </select>
                     </div>
                     <br></br>

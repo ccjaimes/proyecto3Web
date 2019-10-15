@@ -31,7 +31,7 @@ class Usuario extends Component {
 
   renderSalida = () => {
     if (this.state.sali) {
-      return <Redirect to="/tendencias" />
+      return <Redirect to="/tendencia" />
     }
 
   }
