@@ -68,7 +68,7 @@ class Registrar extends Component {
 
     render() {
  return (
-            <div>
+            <div className="">
                 
                 <div className="card">
                     <div className="card-body">

@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import UsuarioBD from '../api/usuarioBD';
 import { BrowserRouter as Router, Route, Switch, Link , Redirect} from 'react-router-dom';
-
+import "./css/style.css";
 class Reg extends Component {
 
   constructor(){
@@ -112,7 +112,7 @@ validatePassword(value){
 render() {
     return (
   <div className="row">
-    <div className="col-12 text-center">
+    <div  className="col-12">
         
     <Formik
       initialValues={{
@@ -139,8 +139,10 @@ render() {
       }}
     >
       {({ errors, touched, isValidating }) => (
-           
-            <div className="card text-center">
+           <div style={{ display: "flex",
+           justifyContent: "center",
+           alignItems: "center"}}>
+            <div className="card text-center mx-auto">
                   <div className="card-body"  style={{backgroundColor: '#FFC49B'}}>
                   <div className="card-title"><h1 className="display-3" style={{textAlign:"center", color:"#001B2E"}}>Registro</h1></div>
                         
@@ -185,12 +187,13 @@ render() {
             
             {this.renderProfile()}
         </div>
-        
+        </div>
     
       )}
     </Formik>
   </div>
   </div>
+  
 )
 };
 }

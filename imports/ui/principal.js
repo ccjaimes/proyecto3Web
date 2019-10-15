@@ -96,7 +96,7 @@ class Principal extends Component {
                     <ListaProductos></ListaProductos>
                     </Route>
                     <Route path="/buscar">
-                        <Buscar ></Buscar>
+                        <Buscar></Buscar>
                     </Route>
                     
                     <Route component={NoMatchPage}></Route>

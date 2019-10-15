@@ -62,8 +62,12 @@ class Usuario extends Component {
     return (
       <div className="row">
         <div className="col-12">
-          <div hidden={this.log()} className="col-4 mx-auto" >
-            <div className="card">
+          
+          <div hidden={this.log()}  >
+          <div style={{ display: "flex",
+           justifyContent: "center",
+           alignItems: "center"}}>
+            <div className="card mx-auto">
 
               <div className="card-body">
                 <div className="card-title">{this.state.usuario}</div>
@@ -78,10 +82,13 @@ class Usuario extends Component {
               </div>
               
             </div>
-          
+          </div>
           </div>
           <div hidden={!this.log()}>
-            <div className="card">
+          <div style={{ display: "flex",
+           justifyContent: "center",
+           alignItems: "center"}}>
+            <div className="card mx-auto">
 
               <div className="card-body">
                 <div className="card-title">Ops! Pagina no encontrada</div>
@@ -90,6 +97,7 @@ class Usuario extends Component {
                 <button className="btn btn-primary" onClick={this.salir}>Volver a la pagina principal</button>
               </div>
             </div>
+          </div>
           </div>
         </div>
 

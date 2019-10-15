@@ -42,9 +42,12 @@ class Login extends Component {
 
     render() {
         return (
-            <div className="row"><div className="col-12"><div className="col-4"></div>
-            <div className="col-4 mx-auto">
-                <div className="card text-center">
+            <div className="row"><div className="col-12 ">
+                <div style={{ display: "flex",
+           justifyContent: "center",
+           alignItems: "center"}}>
+            
+                <div className="card text-center mx-auto">
                     <div className="card-body">
                         <div className="card-title"><h1 className="display-3">Login</h1></div>
                          <form onSubmit={this.handleSubmit} className="form-group">
@@ -67,6 +70,7 @@ class Login extends Component {
                 </div>
                 {this.renderProfile()}
             </div>
+            
             </div>
             </div>
         );
