@@ -29,16 +29,9 @@ class CentrosComerciales extends Component {
     return (
       <div>
         <div >
-<<<<<<< HEAD
           <h2>
             Centros Comerciales
           </h2>
-=======
-
-          <h1>
-            Centros Comerciales        
-          </h1>
->>>>>>> f30e69aeb2c3d770c9a8f2e57f4f2708f5e13cfd
         </div>
         <br></br>
         <div className="scro">
