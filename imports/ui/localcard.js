@@ -14,6 +14,7 @@ export default class LocalCard extends Component  {
     render() 
     {
         return (
+          
  <div className="w3-card">
             <img src={this.darImage()} alt="CardLocal"  width="400" height="300" />
                 
