@@ -33,8 +33,10 @@ localhost:3000
 Para usar la aplicación web lo puede hacer mediante un usuario creado o registrando uno nuevo. Si se escoge la primera opción puede hacer uso de un usuario de prueba cuyos datos se encuentran a continuación:
 
 
->user: usuario7
->Contraseña: usuario7
+```bash
+user: usuario7
+Contraseña: usuario7
+```
 
 
 ### URL del video
@@ -42,3 +44,11 @@ Para usar la aplicación web lo puede hacer mediante un usuario creado o registr
 * En esta [URL](https://youtu.be/nIMTsILVtHg) puedes encontrar un video en el que se muestra la funcionalidad de la aplicación web.
 * En esta [URL](https://youtu.be/3hNu81mHtfE) puedes encontrar un video con la propuesta de valor de la aplicación.
 * Aca ec2-52-0-225-12.compute-1.amazonaws.com:3000 puedes encontrar la página web corriendo
+
+### Integrantes de Equipo 3:
+
+* Cristhian Camilo Peña Jaimes 
+* Laura Isabella Forero Camacho
+* Sebastian Rodriguez Beltran
+* Susan Paola Joven Vasquez
+* Nicolas Sotelo Londoño
