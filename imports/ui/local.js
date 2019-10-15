@@ -20,7 +20,7 @@ class Locales extends Component {
 
     return this.props.locales.map((d) => (
 
-
+      
       <div key={d._id} className="card bg-light mb-4 mt-4"   >
         <div className="row ">
           <div className="col-5">
