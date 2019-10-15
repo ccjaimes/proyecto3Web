@@ -29,10 +29,12 @@ addElements(){
     return (
       <div>
         <div >
-          <h2>
+
+          <h1>
             Centros Comerciales        
-          </h2>
+          </h1>
         </div>
+        <br></br>
         <div className="scro">
        
           {this.renderCentroComercial()}
