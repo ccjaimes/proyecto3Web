@@ -2,7 +2,7 @@
 
 ### Descripción del proyecto
 
-PINE Discounts es una aplicación web que te permite encontrar ofertas y descuentos en un centro comercial. Estos descuentos pueden ser encontrados según la categoría, sitios o productos de tu preferencia. 
+PINE Discounts es una aplicación web que te permite encontrar ofertas y descuentos en un centro comercial. Estos descuentos pueden ser encontrados según la categoría (ropa, comida, tecnología), sitios o productos de tu preferencia. 
 
 La aplicación está estructurada utilizando`Meteor`,`React` y `Mongo`.
 
