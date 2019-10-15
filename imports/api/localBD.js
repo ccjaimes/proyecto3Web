@@ -1,3 +1,3 @@
 import { Mongo } from 'meteor/mongo';
 
-export default Local = new Mongo.Collection('local');
+export default LocalBD = new Mongo.Collection('local');

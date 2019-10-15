@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CentrosComerciales from './centroComercial/centroscomerciales';
 import CentrosComercialesSearch from './centroComercial/centroscomercialessearch';
+import Local from './local';
 
 class Inicio extends Component {
     render() {
@@ -25,6 +26,8 @@ class Inicio extends Component {
                 <br></br>
                 <br></br>
                 <CentrosComerciales/>
+                
+                <Local/>
             </div>
         );
     }
