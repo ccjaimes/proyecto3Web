@@ -6,7 +6,7 @@ PINE Discounts es una aplicación web que te permite encontrar ofertas y descuen
 
 La aplicación está estructurada utilizando`Meteor`,`React` y `Mongo`.
 
-### Instrucciones de despliegue y uso
+### Instrucciones de despliegue 
 
 Una vez descargado el proyecto, ejecutar los siguientes comandos en el directorio local: 
 
@@ -17,7 +17,6 @@ meteor npm install
 meteor add react-meteor-data 
 ```
 
-
 Para ejecutar el proyecto con la base de datos de Mongo Atlas (DESDE GIT BASH):
 
 ```bash
@@ -27,6 +26,15 @@ Abrir en un navegador mediante la dirección:
 
 ```bash
 localhost:3000
+```
+
+### Instrucciones de uso
+
+Para usar la aplicación web lo puede hacer mediante un usuario creado o registrando uno nuevo. Si se escoge la primera opción puede hacer uso de un usuario de prueba cuyos datos se encuentran a continuación:
+
+```bash
+user: usuario7
+Contraseña: usuario7
 ```
 
 ### URL del video
