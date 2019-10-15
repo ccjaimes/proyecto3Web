@@ -169,10 +169,11 @@ render() {
                     {errors.email && touched.email && this.state.mostrarEmail ? <p style={{ color: 'red' }}>{this.state.textoEmail}</p>:null}
                     <br></br>
                     <div>
-                        <label>Tipo de Usuario</label>
+                        <label>Categorias</label>
                         <select name="tipo" id="tipo">
-                            <option value="Cliente">Cliente</option>
-                            <option value="Administrador">Administrador</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                            <option value="C3">C3</option>
                         </select>
                     </div>
                     <br></br>
