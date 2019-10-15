@@ -42,7 +42,7 @@ class Buscar extends Component {
                 <ul>
                 {filtrados.map((centro)=>
                 {
-                    <CentroComercialCard key={centro._id} value={d} />
+                    <CentroComercialCard key={centro._id} value={centro} />
                 })}
                 </ul>
                 <br></br>
@@ -53,7 +53,7 @@ class Buscar extends Component {
                 <ul>
                 {locales.map((local)=>
                 {
-                    <LocalCard key={local._id} value={d} />
+                    <LocalCard key={local._id} value={local} />
                 })}
                 </ul>
 
