@@ -13,7 +13,7 @@ class Usuario extends Component {
     this.state = {
       usuario: data != undefined ? data.usuario : null,
       correo: data != undefined ? data.correo : null,
-      categoria: data != undefined ? data.categoria : null,
+      categoria: data != undefined ? data.categoriaFavorita : null,
       sali:false
     }
     this.renderSalida = this.renderSalida.bind(this)
