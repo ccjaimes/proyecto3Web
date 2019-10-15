@@ -21,14 +21,14 @@ class Usuario extends Component {
     event.preventDefault();
     sessionStorage.setItem("Usuario", null);
     sessionStorage.clear();
-    return <Redirect to="/"></Redirect>
+    return <Redirect to="/tendencias"></Redirect>
   }
 
 
   renderSalida = () => {
-    if (sessionStorage.getItem("Usuario") == null) {
+    if (sessionStorage.getItem("Usuario") === null) {
 
-      return <Redirect to="/" />
+      return <Redirect to="/tendencias" />
     }
 
   }
@@ -65,8 +65,10 @@ class Usuario extends Component {
                   <p>{this.state.correo}</p></div>
                 <label>Categoria</label>
                 <p>{this.state.categoria}</p>
-                <button className="btn btn-danger" onClick={(event) => this.logOut(event)}>Log Out</button>
+                <button className="btn btn-danger" onClick={(event)=>this.logOut(event)}>Log Out</button>
+              
               </div>
+              
             </div>
             {this.renderSalida()}
           </div>
