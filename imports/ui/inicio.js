@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CentrosComerciales from './centroComercial/centroscomerciales';
+import CentrosComercialesSearch from './centroComercial/centroscomercialessearch';
 
 class Inicio extends Component {
     render() {

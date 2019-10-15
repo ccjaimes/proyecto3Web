@@ -38,6 +38,7 @@ class Buscar extends Component {
 
     render() {
 
+        console.log(this.props.centrosComerciales)
         let filtrados = this.props.centrosComerciales.filter(
             (centro) => {
                 return centro.nombre.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
@@ -60,7 +61,7 @@ class Buscar extends Component {
                 <br></br>
                 <ul>
                     {filtrados.map((centro) => {
-                        <CentroComercialCard key={centro._id} value={centro} />
+                        return <CentroComercialCard key={centro._id} value={centro} />
                     })}
                 </ul>
                 <br></br>
@@ -70,7 +71,7 @@ class Buscar extends Component {
                 <br></br>
                 <ul>
                     {locales.map((local) => {
-                        <LocalCard key={local._id} value={local} />
+                        return <LocalCard key={local._id} value={local} />
                     })}
                 </ul>
 
