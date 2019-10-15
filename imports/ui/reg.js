@@ -28,8 +28,7 @@ renderProfile = () => {
 }  
 
 autentication=(event)=> {
-        var data = {usuario:document.getElementsByName("username")[0].value,password:document.getElementsByName("password")[0].value,correo:document.getElementsByName("email")[0].value}
-        console.log(data)
+        var data = {usuario:document.getElementsByName("username")[0].value,password:document.getElementsByName("password")[0].value,correo:document.getElementsByName("email")[0].value,categoria:document.getElementsByName("tipo")[0].value}
         var mailerror= this.validateEmail(data.correo);
 
         var passError = this.validatePassword(data.password);
@@ -113,10 +112,8 @@ validatePassword(value){
 render() {
     return (
   <div className="row">
-    <div className="col-12">
-        <div className="col-4">
-            <div className="card" hidden></div>
-        </div>
+    <div className="col-12 text-center">
+        
     <Formik
       initialValues={{
         username: '',
@@ -142,7 +139,7 @@ render() {
       }}
     >
       {({ errors, touched, isValidating }) => (
-          <div className="col-4 mx-auto"> 
+           
             <div className="card text-center">
                   <div className="card-body"  style={{backgroundColor: '#FFC49B'}}>
                   <div className="card-title"><h1 className="display-3" style={{textAlign:"center", color:"#001B2E"}}>Registro</h1></div>
@@ -169,10 +166,11 @@ render() {
                     {errors.email && touched.email && this.state.mostrarEmail ? <p style={{ color: 'red' }}>{this.state.textoEmail}</p>:null}
                     <br></br>
                     <div>
-                        <label>Tipo de Usuario</label>
+                        <label>Categorias</label>
                         <select name="tipo" id="tipo">
-                            <option value="Cliente">Cliente</option>
-                            <option value="Administrador">Administrador</option>
+                            <option value="C1">C1</option>
+                            <option value="C2">C2</option>
+                            <option value="C3">C3</option>
                         </select>
                     </div>
                     <br></br>
@@ -184,7 +182,7 @@ render() {
                     </div>
                     </Form>
                     </div>
-            </div>
+            
             {this.renderProfile()}
         </div>
         
