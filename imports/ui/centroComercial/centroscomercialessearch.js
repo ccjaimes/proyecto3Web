@@ -54,6 +54,7 @@ export default withTracker((props) => {
     });*/
   }
   return {
-    centrosComerciales: CentrosComercialesBD.find({"nombre":props.value}).fetch(),
+    
+    centrosComerciales: CentrosComercialesBD.find({"nombre":{$regex : ".*"+props.value+".*"}}).fetch(),
   };
 })(CentrosComercialesSearch);
