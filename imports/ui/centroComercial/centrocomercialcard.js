@@ -5,6 +5,7 @@ export default class CentroComercialCard extends Component  {
     render() 
     {
         return (
+          <div className="col-6">
  <div className="w3-card">
             <img src={this.props.value.imagen} alt="CardCentroComercial"  width="400" height="300" />
                 
@@ -14,7 +15,7 @@ export default class CentroComercialCard extends Component  {
             </div>
           
           </div>
-          
+          </div>
           
         );
     }
