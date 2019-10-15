@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { CentrosComercialesBD } from '../../api/centroscomercialesBD.js';
+import { CentrosComercialesBD } from '../../api/centroscomercialesBD';
 import CentroComercialCard from "./centrocomercialcard.js";
  import "../css/style.css";
 class CentrosComerciales extends Component {
@@ -33,7 +33,7 @@ addElements(){
             Centros Comerciales        
           </h2>
         </div>
-        <div class="scro">
+        <div className="scro">
        
           {this.renderCentroComercial()}
 

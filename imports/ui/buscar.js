@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import LocalCard from './localcard';
+import CentroComercialCard from './centroComercial/centrocomercialcard';
 import CentrosComercialesBD from '../api/centroscomercialesBD';
 import LocalBD from '../api/localBD';
 
@@ -34,6 +35,8 @@ class Buscar extends Component {
 
         return (
             <div>
+                  <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)} style={{width: "300px"}} style={{backgroundColor:'#ffffff'}}/>
+                  <hr></hr>
                 <h2>Centros Comerciales</h2>
                 <br></br>
                 <ul>
@@ -50,11 +53,11 @@ class Buscar extends Component {
                 <ul>
                 {locales.map((local)=>
                 {
-                    <Local key={local._id} value={d} />
+                    <LocalCard key={local._id} value={d} />
                 })}
                 </ul>
 
-                <input type="text" value={this.state.search} onChange={this.updateSearch.bind(this)}/>
+              
             </div>
         );
     }
