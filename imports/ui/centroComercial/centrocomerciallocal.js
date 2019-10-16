@@ -24,7 +24,7 @@ class CentroComercialLocal extends Component {
 
         </div>
         <div className="col-6">
-          <h5>{this.props.local.Nombre}</h5>
+          <h5>{this.props.local.nombre}</h5>
         </div>
         </div >
 

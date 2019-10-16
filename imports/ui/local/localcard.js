@@ -19,7 +19,7 @@ export default class LocalCard extends Component  {
             <img src={this.darImage()} alt="CardLocal"  width="400" height="300" />
                 
                  <div className="w3-container w3-center" >
-              <a href="#" className="btn btn-default"style={{"display":"block","width":"400px"}}>{this.props.value.Nombre} </a>
+              <a href="#" className="btn btn-default"style={{"display":"block","width":"400px"}}>{this.props.value.nombre} </a>
                    
             </div>
           
